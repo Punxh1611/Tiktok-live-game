@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Timer Overlay</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="timer-container" id="timer-container">
+        <div class="timer-glow" id="timer-glow"></div>
+        <div class="timer-text" id="timer-text">00:00:00</div>
+    </div>
+
+    <div class="events-container" id="events-container">
+        <!-- Gift events will appear here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

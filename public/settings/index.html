@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Live Timer - Settings</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    
+    <div class="container" id="login-container">
+        <div class="glass-panel">
+            <div class="logo-area">
+                <div class="icon-pulse"></div>
+                <h1>Live Timer</h1>
+                <p>Enter PIN to access settings</p>
+            </div>
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="password" id="pin-input" placeholder="Enter PIN code" required autocomplete="off">
+                </div>
+                <button type="submit" class="btn primary-btn">Unlock</button>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container hidden" id="settings-container">
+        <div class="glass-panel">
+            <div class="header">
+                <h2>Timer Settings</h2>
+                <button id="logout-btn" class="btn text-btn">Lock</button>
+            </div>
+            
+            <div class="info-card">
+                <h3>💡 คู่มือการใช้งานเบื้องต้น</h3>
+                <ul>
+                    <li><b>วิธีตั้งเวลาปัจจุบันใหม่:</b> กรอกเวลาใหม่ในช่อง <strong>Start Time</strong> แล้วกด <strong>Save Settings</strong> ระบบจะเปลี่ยนเวลาปัจจุบันให้ทันที (ไม่ต้องกด Reset)</li>
+                    <li><b>ขั้นต่ำการนับของขวัญ:</b> สามารถตั้งค่า <strong>Minimum Coins</strong> เป็น 1 เพื่อให้ทุกคนมีส่วนร่วมได้ หรือตั้งค่าสูงขึ้นถ้าต้องการ</li>
+                    <li><b>ลิงก์สำหรับ OBS:</b> นำ <code>http://localhost:3000/overlay</code> ไปเพิ่มเป็น Browser Source ได้เลย</li>
+                </ul>
+            </div>
+            
+            <form id="settings-form">
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label for="secondsPerCoin">Seconds per Coin</label>
+                        <input type="number" id="secondsPerCoin" min="1" step="1" required>
+                        <small>Time added for 1 coin</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="minCoinsPerGift">Minimum Coins</label>
+                        <input type="number" id="minCoinsPerGift" min="0" step="1" required>
+                        <small>Gifts below this are ignored (set to 1 to allow all)</small>
+                    </div>
+                </div>
+
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label>Start Time</label>
+                        <div class="time-input-row">
+                            <div class="time-input-col">
+                                <input type="number" id="start-hours" min="0" step="1" placeholder="Hr" required>
+                                <span>h</span>
+                            </div>
+                            <div class="time-input-col">
+                                <input type="number" id="start-mins" min="0" max="59" step="1" placeholder="Min" required>
+                                <span>m</span>
+                            </div>
+                            <div class="time-input-col">
+                                <input type="number" id="start-secs" min="0" max="59" step="1" placeholder="Sec" required>
+                                <span>s</span>
+                            </div>
+                        </div>
+                        <small>Initial countdown time</small>
+                    </div>
+                    <div class="input-group">
+                        <label>Max Time Limit</label>
+                        <div class="time-input-row">
+                            <div class="time-input-col">
+                                <input type="number" id="max-hours" min="0" step="1" placeholder="Hr" required>
+                                <span>h</span>
+                            </div>
+                            <div class="time-input-col">
+                                <input type="number" id="max-mins" min="0" max="59" step="1" placeholder="Min" required>
+                                <span>m</span>
+                            </div>
+                            <div class="time-input-col">
+                                <input type="number" id="max-secs" min="0" max="59" step="1" placeholder="Sec" required>
+                                <span>s</span>
+                            </div>
+                        </div>
+                        <small>Time ceiling</small>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn primary-btn">Save Settings</button>
+                </div>
+                <div id="save-status" class="status-msg"></div>
+            </form>
+
+            <hr class="divider">
+
+            <div class="controls-section">
+                <h3>Live Controls</h3>
+                <div class="control-buttons">
+                    <button id="toggle-timer-btn" class="btn outline-btn">Start/Pause Timer</button>
+                    <button id="reset-timer-btn" class="btn danger-btn">Reset Timer</button>
+                </div>
+                <div class="status-indicator">
+                    <span id="timer-status">Timer Status: Unknown</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

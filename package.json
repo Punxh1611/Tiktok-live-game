@@ -1,0 +1,22 @@
+{
+  "name": "tiktok-live-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "tunnel": "lt --port 3000 --subdomain tiktok-live-timer-dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "body-parser": "^2.3.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "localtunnel": "^2.0.2",
+    "socket.io": "^4.8.3"
+  }
+}
