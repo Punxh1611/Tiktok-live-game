@@ -47,11 +47,15 @@
 
 ### 2. ตั้งค่า Webhook ใน TikFinity
 1. ล็อคอินเข้าเว็บ [TikFinity](https://tikfinity.zerody.one/) แล้วเชื่อมต่อบัญชี TikTok ของคุณ
-2. ไปที่เมนู **Actions & Events**
-3. สร้าง Action ใหม่ เลือกประเภทเป็น **Trigger Webhook**
-4. ในช่อง **URL** ให้ใส่ลิงก์ที่ก๊อปปี้มา ตามด้วย `/webhook/gift`
-   - ตัวอย่าง: `https://your-random-url.loca.lt/webhook/gift`
-5. **การตั้งค่า Body/Payload (ต้องตั้งให้ตรงเพื่อให้ระบบอ่านออก):**
+2. ไปที่เมนู **Actions & Events** (เมนูทางซ้ายมือ)
+3. ดูที่ฝั่งซ้ายของจอตรงกล่อง **Actions** ให้กดปุ่ม **Create new Action**
+4. ตรง Action Type ให้เลือกเป็น **Trigger Webhook**
+5. เลื่อนลงมาตั้งค่าช่องต่างๆ ดังนี้:
+   - **URL**: ให้ใส่ลิงก์ Tunnel ที่ก๊อปปี้มา ตามด้วย `/webhook/gift` (ตัวอย่าง: `https://your-random-url.loca.lt/webhook/gift`)
+   - **Method**: เลือกเป็น **`POST`**
+   - **Data Type**: เลือกเป็น **`JSON`** (หรือ `application/json`)
+   - **Custom Body** (กล่องข้อความขนาดใหญ่): ให้ก๊อปปี้โค้ดด้านล่างนี้ไปวางทั้งหมดเลยครับ
+
    ```json
    {
      "eventId": "{event_id}",
@@ -61,9 +65,11 @@
      "repeatEnd": {repeat_end}
    }
    ```
-6. บันทึก Action นี้
-7. ไปที่แถบ **Events** สร้าง Event ใหม่เป็น **"Sending Gift"** (Any Gift)
-8. เลือกผูกกับ Action Webhook ที่เราเพิ่งสร้างเมื่อกี้
+   *(หมายเหตุ: สามารถพิมพ์เองแล้วใช้ปุ่มตัวแปรที่ TikFinity มีให้กดแทรกได้เลย)*
+
+6. กดบันทึก (Save Action) ด้านล่างสุด
+7. ไปที่กล่อง **Events** (ฝั่งขวา) สร้าง Event ใหม่ตั้งชื่อว่า "Sending Gift"
+8. เลือกเหตุการณ์เป็น **Any Gift** และกดเพิ่ม Action ที่เราเพิ่งสร้างมะกี้เข้าไป
 
 ### 3. ทดสอบการทำงาน
 1. ลองเปิดไลฟ์ใน TikTok (สามารถตั้งเป็น Private Live ได้)
